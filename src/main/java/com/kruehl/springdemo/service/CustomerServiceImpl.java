@@ -9,7 +9,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-public class CustomerSeviceImpl implements CustomerService {
+public class CustomerServiceImpl implements CustomerService {
 
     // need to inject the customer dao
 
@@ -27,5 +27,11 @@ public class CustomerSeviceImpl implements CustomerService {
     public void saveCustomer(Customer customer) {
 
         customerDAO.saveCustomer(customer);
+    }
+
+    @Override
+    @Transactional
+    public Customer getCustomer(int id) {
+        return customerDAO.getCustomer(id);
     }
 }
